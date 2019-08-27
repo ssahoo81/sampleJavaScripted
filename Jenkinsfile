@@ -1,4 +1,5 @@
 node {
+   git 'https://github.com/ssahoo81/sampleJavaScripted'
    stage("build") {
        snDevOpsStep '241012150fa333009d1a986eb4767efe'
        echo "Building" 

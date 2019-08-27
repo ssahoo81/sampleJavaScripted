@@ -1,6 +1,6 @@
 node {
    stage("build") {
-       snDevOpsStep 'a453b4cd9f033300c0745c20942e7051'
+       snDevOpsStep '241012150fa333009d1a986eb4767efe'
        echo "Building" 
        sh 'mvn clean install'
        sleep 5
@@ -17,7 +17,7 @@ node {
        }
    }
    stage("test") {
-       snDevOpsStep 'a853b4cd9f033300c0745c20942e7051'
+       snDevOpsStep '2c1012150fa333009d1a986eb4767efe'
        echo "Testing"
        sh 'mvn test -Dpublish'
        stage("test-nested") {
@@ -32,7 +32,7 @@ node {
        junit '**/target/surefire-reports/*.xml' 
    }
    stage("deploy") {
-       snDevOpsStep '2853b4cd9f033300c0745c20942e7051'
+       snDevOpsStep '2c1012150fa333009d1a986eb4767efe'
        snDevOpsChange()
        stage("deploy-nested") {
          echo "Deploying"

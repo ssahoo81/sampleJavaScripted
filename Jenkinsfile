@@ -2,10 +2,7 @@ node {
    stage("build") {
        snDevOpsStep '241012150fa333009d1a986eb4767efe'
        echo "Building" 
-      withMaven(maven: 'Maven'){
-          sh 'mvn clean install'
-      }
-      
+          sh 'mvn clean install'        
        sleep 5
        parallel 'build-nested1': {
            stage('build-nestedA') {

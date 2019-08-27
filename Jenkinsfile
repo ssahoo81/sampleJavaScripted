@@ -33,7 +33,7 @@ node {
        junit '**/target/surefire-reports/*.xml' 
    }
    stage("deploy") {
-       snDevOpsStep '2c1012150fa333009d1a986eb4767efe'
+       snDevOpsStep 'a81012150fa333009d1a986eb4767efe'
        snDevOpsChange()
        stage("deploy-nested") {
          echo "Deploying"

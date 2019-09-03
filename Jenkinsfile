@@ -3,7 +3,7 @@ node {
    stage("build") {
        snDevOpsStep '5ce3cd92db23ff00bffe5223dc96197e'
        echo "Building" 
-          sh 'mvn clean install'        
+          //sh 'mvn clean install'        
        sleep 5
        parallel 'build-nested1': {
            stage('build-nestedA') {
@@ -20,7 +20,7 @@ node {
    stage("test") {
        snDevOpsStep 'd8e3cd92db23ff00bffe5223dc96197e'
        echo "Testing"
-       sh 'mvn test -Dpublish'
+       //sh 'mvn test -Dpublish'
        stage("test-nested") {
          echo "Testing nested"
          sleep 7
@@ -30,7 +30,7 @@ node {
          }
        }
        sleep 3
-       junit '**/target/surefire-reports/*.xml' 
+       //junit '**/target/surefire-reports/*.xml' 
    }
    stage("deploy") {
        snDevOpsStep 'dce3cd92db23ff00bffe5223dc96197e'

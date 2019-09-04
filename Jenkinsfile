@@ -1,13 +1,9 @@
 node {
    git 'https://github.com/ssahoo81/sampleJavaScripted'
    stage("build") {
-       snDevOpsStep '5ce3cd92db23ff00bffe5223dc96197e'
+       snDevOpsStep '0076b32b0fe333009d1a986eb4767e1a'
        echo "Building" 
-      withMaven(
-            maven="Maven") {
-            sh "mvn clean install"
-         }
-          //sh 'mvn clean install'        
+         sh 'mvn clean install'        
        sleep 5
        parallel 'build-nested1': {
            stage('build-nestedA') {
@@ -22,7 +18,7 @@ node {
        }
    }
    stage("test") {
-       snDevOpsStep 'd8e3cd92db23ff00bffe5223dc96197e'
+       snDevOpsStep '8c76b32b0fe333009d1a986eb4767e19'
        echo "Testing"
          sh 'mvn test -Dpublish'
        stage("test-nested") {
@@ -37,7 +33,7 @@ node {
        junit '**/target/surefire-reports/*.xml' 
    }
    stage("deploy") {
-       snDevOpsStep 'dce3cd92db23ff00bffe5223dc96197e'
+       snDevOpsStep '8476b32b0fe333009d1a986eb4767e19'
        snDevOpsChange()
        stage("deploy-nested") {
          echo "Deploying"
